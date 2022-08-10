@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs'
 import React, {useReducer} from 'react'
 
 type State = typeof initialState
@@ -18,10 +19,16 @@ function appReducer(state: any, action: any){
 
     case 'submit':
       if(state.username === credential.username){
-        if(state.password === credential.password) return { ...state, loggedIn: true }
+        if(state.password === credential.password){
+          return { ...state, loggedIn: true, errorMsg:'' }
+        }
         else return { ...state, errorMsg: 'the password is not correct' }
       }
       else return { ...state, errorMsg: 'the username is not correct' }
+
+    case 'logout': return {
+      ...state, loggedIn: false
+    }  
 
     default: return state
   }
@@ -30,8 +37,13 @@ function appReducer(state: any, action: any){
 export default function App(): JSX.Element {
   const [state, dispatch] = useReducer(appReducer, initialState)
 
-  function handleSubmit(): void{
+  function handleSubmit(e: React.FormEvent): void{
     dispatch({type:'submit'})
+    e.preventDefault()
+  }
+
+  function handleLogout(): void{
+    dispatch({type:'logout'})
   }
 
   function handleChange(e: React.FormEvent): void{
@@ -48,19 +60,31 @@ export default function App(): JSX.Element {
 
   return (
     <section>
-      <form>
-        <label htmlFor='usernam'>
-          Username
-          <input type='text' name='username' onChange={(e) => handleChange(e)} />
-        </label>
+      {
+        state.loggedIn ? 
+          <div>
+            <h2>Welcome {state.username}! You are logged in.</h2>
+            <button onClick={() => handleLogout()}>
+              Logout
+            </button>
+          </div>
+          :
+          <form>
+            <label htmlFor='usernam'>
+              Username
+              <input type='text' name='username' onChange={(e) => handleChange(e)} />
+            </label>
 
-        <label htmlFor='password'>
-          Password
-          <input type='password' name='password' />
-        </label>
+            <label htmlFor='password'>
+              Password
+              <input type='password' name='password' onChange={(e) => handleChange(e)} />
+            </label>
 
-        <button onClick={() => handleSubmit()}>Submit</button>
-      </form>
+            <button onClick={(e) => handleSubmit(e)}>
+              Submit
+            </button>
+          </form>
+      }
     </section>
   )
 }
