@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs'
 import React, {useReducer} from 'react'
 
 type State = typeof initialState
