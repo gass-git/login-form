@@ -3,11 +3,21 @@ import React, {useReducer} from 'react'
 
 type State = typeof initialState
 
-const initialState = {username: '', password: '', loggedIn: false, errorMsg: ''}
+type Action = 
+  | {type: 'submit' | 'logout'}
+  | {type: 'update username'; username: string}
+  | {type: 'update password'; password: string}
+  
+const initialState = {
+  username: '', 
+  password: '', 
+  loggedIn: false, 
+  errorMsg: ''
+}
 
 const credential = {username: 'gabriel', password: '123'}
 
-function appReducer(state: any, action: any){
+function appReducer(state: State, action: Action){
   switch(action.type){
     case 'update username': return { 
       ...state, username: action.username 
