@@ -31,9 +31,19 @@ function appReducer(state: State, action: Action){
         if(state.password === credential.password){
           return { ...state, loggedIn: true, errorMsg:'' }
         }
-        else return { ...state, errorMsg: 'the password is not correct' }
+        else return { 
+          ...state, 
+          errorMsg: 'the password is not correct',
+          username: '',
+          password: ''  
+        }
       }
-      else return { ...state, errorMsg: 'the username is not correct' }
+      else return { 
+        ...state, 
+        errorMsg: 'the username is not correct',
+        username: '',
+        password: '' 
+      }
 
     case 'logout': return {
       ...state, loggedIn: false
@@ -81,12 +91,22 @@ export default function App(): JSX.Element {
           <form>
             <label htmlFor='usernam'>
               Username
-              <input type='text' name='username' onChange={(e) => handleChange(e)} />
+              <input 
+                type='text' 
+                name='username' 
+                onChange={(e) => handleChange(e)} 
+                value={state.username} 
+              />
             </label>
 
             <label htmlFor='password'>
               Password
-              <input type='password' name='password' onChange={(e) => handleChange(e)} />
+              <input 
+                type='password' 
+                name='password' 
+                onChange={(e) => handleChange(e)} 
+                value={state.password} 
+              />
             </label>
 
             <button onClick={(e) => handleSubmit(e)}>
