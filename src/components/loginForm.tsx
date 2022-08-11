@@ -1,13 +1,14 @@
 import React, {useContext} from 'react'
 import { handleChange, handleLogin } from '../handlers'
 import {ctx} from '../App'
+import '../index.css'
 
 export default function LoginForm() {
   const {state, dispatch} = useContext(ctx)
 
   return (
-    <form>
-        <label htmlFor='usernam'>
+    <form className='form-box'>
+        <label htmlFor='username'>
             Username
             <input 
             type='text' 

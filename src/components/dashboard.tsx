@@ -6,11 +6,11 @@ export default function Dashboard() {
   const {state, dispatch} = useContext(ctx)
   
   return (
-    <div>
+    <section>
         <h2>Welcome {state.username}! You are logged in.</h2>
         <button onClick={() => handleLogout(dispatch)}>
             Logout
         </button>
-    </div>
+    </section>
   )
 }
