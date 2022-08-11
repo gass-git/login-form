@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { handleChange, handleLogin } from '../handlers'
+import {ctx} from '../App'
 
-export default function loginForm(state: any, dispatch: React.Dispatch<any>) {
+export default function LoginForm() {
+  const {state, dispatch} = useContext(ctx)
+
   return (
     <form>
         <label htmlFor='usernam'>

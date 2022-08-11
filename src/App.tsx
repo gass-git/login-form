@@ -1,19 +1,20 @@
-import React, {useReducer} from 'react'
+import React, {useReducer, createContext} from 'react'
 import {appReducer, initialState} from './state'
 import Dashboard from './components/dashboard'
 import LoginForm from './components/loginForm'
 
-export default function App(): JSX.Element {
+const ctx = createContext<any>(null)
+
+function App(): JSX.Element {
   const [state, dispatch] = useReducer(appReducer, initialState)
 
   return (
-    <section>
+    <ctx.Provider value={{state, dispatch}}>
       {
-        state.loggedIn ? 
-          <Dashboard state={state} dispatch={dispatch}/>
-          :
-          <LoginForm state={state} dispatch={dispatch}/>
+        state.loggedIn ? <Dashboard /> : <LoginForm />
       }
-    </section>
+    </ctx.Provider>
   )
 }
+
+export {ctx, App}

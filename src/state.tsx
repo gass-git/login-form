@@ -1,4 +1,4 @@
-type State = typeof initialState
+type StateType = typeof initialState
 
 type Action = 
   | {type: 'login' | 'logout'}
@@ -14,7 +14,7 @@ const initialState = {
 
 const credential = {username: 'gabriel', password: '123'}
 
-function appReducer(state: State, action: Action){
+function appReducer(state: StateType, action: Action){
   switch(action.type){
     case 'update username': return { 
       ...state, username: action.username 
