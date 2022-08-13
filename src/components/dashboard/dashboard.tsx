@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { handleLogout } from '../../handlers'
 import { ctx } from '../../App'
 
-export default function Dashboard() {
+export default function Dashboard(): JSX.Element {
   const { state, dispatch } = useContext(ctx)
 
   return (

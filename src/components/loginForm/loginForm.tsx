@@ -3,7 +3,7 @@ import { handleChange, handleLogin } from '../../handlers'
 import { ctx } from '../../App'
 import s from './loginForm.module.css'
 
-export default function LoginForm() {
+export default function LoginForm(): JSX.Element {
   const { state, dispatch } = useContext(ctx)
 
   return (
