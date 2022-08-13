@@ -1,5 +1,7 @@
+@import './global/root.css';
+
 body {
-  background: #eee;
+  background: var(--grey);
   margin: 0;
   display: grid;
   height: 100vh;
@@ -9,9 +11,4 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }

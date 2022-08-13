@@ -1,0 +1,43 @@
+@import '../../global/root.css';
+
+.form_box {
+  background: white;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px 35px 35px 35px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.form_box>* {
+  font-size: var(--font-size);
+}
+
+.form_box>label {
+  color: var(--label-font-color);
+  margin: 20px 0px 10px 5px;
+}
+
+.form_box>input {
+  color: var(--input-font-color);
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background: var(--grey);
+  padding: 5px 15px 5px 15px;
+}
+
+.form_box>button {
+  color: var(--grey);
+  background: var(--btn-color);
+  height: 50px;
+  margin-top: 35px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.form_box>button:hover {
+  background: var(--btn-color-hover);
+}
