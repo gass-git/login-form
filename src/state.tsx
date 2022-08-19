@@ -4,7 +4,8 @@ type Action =
   | {type: 'login' | 'logout'}
   | {type: 'update username'; username: string}
   | {type: 'update password'; password: string}
-  
+  | {type: 'erase error message'}
+
 const initialState = {
   username: '', 
   password: '', 
@@ -51,6 +52,11 @@ function appReducer(state: StateType, action: Action){
       ...state, 
       loggedIn: false
     }  
+
+    case 'erase error message': return {
+      ...state,
+      errorMsg: ''
+    }
 
     default: return state
   }

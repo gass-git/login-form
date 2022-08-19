@@ -1,0 +1,15 @@
+@import '../../global/root.css';
+
+.container{
+    display:grid;
+    grid-template-columns: auto auto;
+    place-items:center;
+    margin-top:20px;
+    height:50px;
+    font-size:15px;
+    background: var(--alert-bg);
+    border-radius: var(--border-radius1);
+}
+.cross{
+    cursor:pointer;
+}

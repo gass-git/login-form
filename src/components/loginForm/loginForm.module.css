@@ -6,7 +6,7 @@
   grid-template-columns: auto;
   padding: 10px 35px 35px 35px;
   width: 300px;
-  border-radius: 20px;
+  border-radius: var(--border-radius2);
 }
 
 .form_box>* {
@@ -22,7 +22,7 @@
   color: var(--input-font-color);
   height: 30px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius1);
   background: var(--grey);
   padding: 5px 15px 5px 15px;
 }
@@ -33,7 +33,7 @@
   height: 50px;
   margin-top: 35px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius1);
   cursor: pointer;
   transition: 300ms;
 }
