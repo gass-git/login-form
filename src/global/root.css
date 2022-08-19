@@ -1,8 +1,8 @@
 :root {
-  --grey: #F6F6F6;
+  --grey: #ececec;
   --font-size: 20px;
-  --label-font-color: #0078AA;
+  --label-font-color: #234189;
   --input-font-color: #2C3333;
-  --btn-color: #3AB4F2;
-  --btn-color-hover: #229bd7;
+  --btn-color: #234189;
+  --btn-color-hover: #2b4fa3;
 }
