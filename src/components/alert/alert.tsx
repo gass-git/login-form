@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import s from './alert.module.css'
 import { ctx } from '../../App'
 
-export default function Alert() {
+export default function Alert(): JSX.Element {
   const {dispatch} = useContext(ctx)
 
   return (
